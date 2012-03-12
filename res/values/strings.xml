@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Reporter</string>
+    <string name="labelLogin">Login:</string>
+    <string name="labelPassword">Password:</string>
+    <string name="labelBtnLogin">Log in</string>
+    
+    <string name="labelRepeatPassword">Repeat password:</string>
+    <string name="labelBtnRegistration">Registration</string>
+	
+    <string name="infoAddReport">Now, you can add a new report.</string>
+	
+</resources>

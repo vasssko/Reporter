@@ -9,6 +9,17 @@
     <string name="labelRepeatPassword">Repeat password:</string>
     <string name="labelBtnRegistration">Registration</string>
 	
-    <string name="infoAddReport">Now, you can add a new report.</string>
+    <string name="labelBtnLogout">Log out</string>
+    <string name="labelBtnAddReport">Add new report (show calendar)</string>
+    
+    <string name="infoCalendar">Choose a date, and click button "Add report"</string>
+	<string name="labelbtnAddReportFromCalendar">Add report</string>
+	
+	<string name="infoSaveReport">Input data fo report and save it.</string>
+	<string name="labelBtnSaveReport">Save Report into DB"</string>
+	<string name="labelTypeOfActivities">Choose type of activities"</string>
+	<string name="labelNameOfProject"> Name of project"</string>
+	<string name="labelInfoOfProject"> Discrabe work"</string>
+	<string name="labelTime"> Input time - hh:mm"</string>
 	
 </resources>

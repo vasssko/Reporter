@@ -2,11 +2,9 @@ package com.training;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,10 +15,12 @@ import android.widget.Toast;
 public class ReporterActivity extends Activity {
 	
 	final String LOG_TAG = "myLogs";
+	
 	static final private int ADD_USER = 0;
-	static final private int ADD_REPORT = 1;
+	static final private int WORK_WITH_REPORT = 1;
 	
 	/** Global variables */
+	String login, password;
 	
 	Button btnLogin;
 	EditText etLogin, etPassword;
@@ -48,8 +48,8 @@ public class ReporterActivity extends Activity {
     {
 	    
 	    // получаем данные из полей ввода
-	    String login = etLogin.getText().toString();
-	    String password = etPassword.getText().toString();
+	    login = etLogin.getText().toString();
+	    password = etPassword.getText().toString();
 	    
 	    //проверяем нужно ли зарегестрировать пользователя
 	    if(login.equals("newcomer") && password.equals("newcomer") ){
@@ -57,7 +57,7 @@ public class ReporterActivity extends Activity {
 	    	// создаем новый intent object и вызываем AddNewUser class
 	    	Intent adduser_question = new Intent(this, com.training.AddNewUser.class);
 	    	
-	    	// запускаем AddNewUser как новый активити и ждем резульаты 
+	    	// запускаем AddNewUser как новый активити и ждем результаты 
 	    	startActivityForResult(adduser_question, ADD_USER);
 	    	
 	    	//зануляем поля логин и пароль
@@ -67,8 +67,8 @@ public class ReporterActivity extends Activity {
 	    else{
 	    	//проверяем корректные ли логин и пароль
 	    	boolean boolCorrLogin = false;
-	    	// подключаемся к БД
-	        SQLiteDatabase db = dbHelper.getWritableDatabase();
+	    	// подключаемся к БД для чтения данных
+	        SQLiteDatabase db = dbHelper.getReadableDatabase();
 	        //делаем запрос всех данных из таблицы users, получаем Cursor 
 	        Cursor c = db.query("users", null, null, null, null, null, null);
 	        // ставим позицию курсора на первую строку выборки
@@ -96,11 +96,15 @@ public class ReporterActivity extends Activity {
 	        	// если логин и пароль корректные стартуем addNewReport
 	        	// иначе виводим Toast
 	        	if (boolCorrLogin) {
-	        		// создаем новый intent object и вызываем AddNewReport class
-	    	    	Intent addreport_question = new Intent(this, com.training.AddNewReport.class);
+	        		
+	        		// создаем новый intent object и вызываем WorkWithReport class
+	    	    	Intent workwithreport_question = new Intent(this, com.training.WorkWithReport.class);
 	    	    	
-	    	    	// запускаем AddNewReport как новый активити и ждем резульаты 
-	    	    	startActivityForResult(addreport_question, ADD_REPORT);
+	    	    	// отправляем логин в активити WorkWithReport
+	    	    	workwithreport_question.putExtra("login", login);
+	    	    	
+	    	    	// запускаем WorkWithReport как новый активити и ждем резульаты 
+	    	    	startActivityForResult(workwithreport_question, WORK_WITH_REPORT);
 	    	    	
 	    	    	etLogin.setText("");
 	    	    	etPassword.setText("");
@@ -160,11 +164,14 @@ public class ReporterActivity extends Activity {
     					Toast.LENGTH_SHORT).show();
     		}
     		break;
-    	case ADD_REPORT:
+    	case WORK_WITH_REPORT:
     		// only proceed if the result was RESULT_OK
     		if(resultCode == RESULT_OK)
     		{
-    			
+    			Toast.makeText(
+						getApplicationContext(),
+						"Work with reportDB succesful!",
+						Toast.LENGTH_LONG).show();
     		}
     		break;
     	default:
@@ -175,11 +182,16 @@ public class ReporterActivity extends Activity {
     // Implementation of the button click handler defined in main.xml
     public void btnReadClickHandler(View target)
     {
-	    // подключаемся к БД
-	    SQLiteDatabase db = dbHelper.getWritableDatabase();
-    	
-	    Log.d(LOG_TAG, "--- Rows in mytable: ---");
-    	// делаем запрос всех данных из таблицы mytable, получаем Cursor 
+	    // подключаемся к БД для считивания данных
+	    SQLiteDatabase db = dbHelper.getReadableDatabase();
+	    
+	    //Удаление з БД по _id
+	    //db.delete("allreports", "_id = 1", null);
+	    
+	    //--------------------------------
+	    //выводим данные с таблицы <users>
+	    Log.d(LOG_TAG, "--- Rows in table <users>: ---");
+    	// делаем запрос всех данных из таблицы users, получаем Cursor 
     	Cursor c = db.query("users", null, null, null, null, null, null);
     	// ставим позицию курсора на первую строку выборки
     	// если в выборке нет строк, вернется false
@@ -201,27 +213,42 @@ public class ReporterActivity extends Activity {
     	} 
     	else
     		Log.d(LOG_TAG, "0 rows");
+    	//-------------------------------------
+	    //выводим данные с таблицы <allreports>
+    	Log.d(LOG_TAG, "--- Rows in table <users>: ---");
+     	//делаем запрос всех данных из таблицы allreports, получаем Cursor 
+     	c = db.query("allreports", null, null, null, null, null, null);
+     	// ставим позицию курсора на первую строку выборки
+     	// если в выборке нет строк, вернется false
+     	if (c.moveToFirst()) {
+     		// определяем номера столбцов по имени в выборке
+     		int idColIndex = c.getColumnIndex("_id");
+     		int loginColIndex = c.getColumnIndex("login");
+     		int dateColIndex = c.getColumnIndex("date");
+     		int typeOfActivitesColIndex = c.getColumnIndex("typeofactivities");
+     		int nameOfProjectColIndex = c.getColumnIndex("nameofproject");
+     		int infoColIndex = c.getColumnIndex("info");
+     		int timeColIndex = c.getColumnIndex("time");
+
+     		do {
+     			// получаем значения по номерам столбцов и пишем все в лог
+     			Log.d(LOG_TAG,
+     					"ID = " + c.getInt(idColIndex) + 
+     					", login = " + c.getString(loginColIndex) +
+     					"\n" +
+     					"date = " + c.getString(dateColIndex) +
+     					", typeofactivitiese = " + c.getString(typeOfActivitesColIndex) +
+     					"\n" +
+     					"nameofproject = " + c.getString(nameOfProjectColIndex) +
+     					", info = " + c.getString(infoColIndex) +
+     					", time = " + c.getString(timeColIndex));
+     			// переход наследующую строку 
+     			// а если следующей нет (текущая - последняя), то false - выходим из цикла
+     		} while (c.moveToNext());
+     	} 
+     	else
+     		Log.d(LOG_TAG, "0 rows");
     }
     
-	class DBHelper extends SQLiteOpenHelper {
-		public DBHelper(Context context) {
-			// конструктор суперкласса
-			super(context, "reporterDB", null, 1);
-	    }
-
-	    @Override
-	    public void onCreate(SQLiteDatabase db) {
-	    	Log.d(LOG_TAG, "--- onCreate database ---");
-	    	// создаем таблицу с полями
-	    	db.execSQL("create table users ("
-	    			+ "_id integer primary key autoincrement," 
-	    			+ "login text,"
-	    			+ "password text" + ");");
-	    }
-	    	
-	    @Override
-	    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-	    }
-	}
+	
 }

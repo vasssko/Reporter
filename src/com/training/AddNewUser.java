@@ -47,7 +47,7 @@ public class AddNewUser extends Activity {
 			setResult(RESULT_OK, adduser_answer);
 			
 			// Finish this activity and return control to the
-			// calling activity (Episode11 in this case)
+			// calling activity (ReporterActivity in this case)
 			finish();
 		}
 		else{

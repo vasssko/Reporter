@@ -11,6 +11,13 @@
 	
     <string name="labelBtnLogout">Log out</string>
     <string name="labelBtnAddReport">Add new report (show calendar)</string>
+    <string name="labelInfoShowResult">Enter a date interval to see the full report for the time</string>
+    <string name="labelYear">Input year (yyyy) </string>
+    <string name="labelMonth">Month </string>
+    <string name="labelBeginDay">From day (dd) </string>
+    <string name="labelEndDay">To day (dd) </string>
+    <string name="labelBtnShowResults">Consolidated report </string>
+    
     
     <string name="infoCalendar">Choose a date, and click button "Add report"</string>
 	<string name="labelbtnAddReportFromCalendar">Add report</string>
@@ -21,5 +28,8 @@
 	<string name="labelNameOfProject"> Name of project"</string>
 	<string name="labelInfoOfProject"> Discrabe work"</string>
 	<string name="labelTime"> Input time - hh:mm"</string>
+	<string name="labelForETTime">1:00</string>
+	
+	<string name="labelBtnBack"> Back </string>
 	
 </resources>

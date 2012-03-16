@@ -67,6 +67,9 @@
 		<EditText 
 		    android:layout_width="fill_parent"
  			android:layout_height="wrap_content"
+ 			android:inputType="time"
+ 			android:text="@string/labelForETTime"
+ 			android:autoText="true"
  			android:id="@+id/edTime"/>
 	</LinearLayout>	    	    
     <LinearLayout

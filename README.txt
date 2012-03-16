@@ -20,3 +20,9 @@ Version 2.0
 	3.After we choose a date we call activtiy AddNewReport.
 		We input data of report and then save him into DB.
 		Then we return to activity WorkWithReport
+Version 3.0
+	What has been done:
+	1. Developing of Activity WorkWithReport. 
+		We add a new input form (beginDate and endDate)	and button "consolidated report". 
+		Now user can see big report for all month or date interval separated by days in other activity. 
+	2. Developing of Activity ShowResults, which write a big report separated by days.

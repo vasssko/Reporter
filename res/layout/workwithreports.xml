@@ -25,6 +25,8 @@
 		<TextView
  			android:layout_width="wrap_content"
  			android:layout_height="wrap_content"
+ 			android:gravity="center"
+ 			android:textSize="20sp"
  			android:id="@+id/tvWWR"
  			android:layout_marginLeft="5dp"
  			android:layout_marginRight="5dp">
@@ -33,8 +35,102 @@
  			android:id="@+id/btnAddReport"
  			android:layout_width="wrap_content"
  			android:layout_height="wrap_content"
+ 			android:layout_marginTop="20dp"
+ 			android:layout_marginBottom="40dp"
  			android:text="@string/labelBtnAddReport"
 			android:onClick="btnAddReportClickHandler">
 		</Button>	
-	</LinearLayout>   
+	</LinearLayout>  
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+		android:orientation="vertical">
+	    <TextView
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:gravity="center"
+ 			android:textSize="18sp"
+ 			android:layout_marginLeft="5dp"
+ 			android:layout_marginRight="5dp"
+ 			android:text="@string/labelInfoShowResult">"
+		</TextView>
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+	    <TextView
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:text="@string/labelYear">
+		</TextView>
+		<EditText 
+		    android:layout_width="fill_parent"
+ 			android:layout_height="wrap_content"
+ 			android:singleLine="true"
+ 			android:inputType="number"
+ 			android:id="@+id/etYear"
+ 			android:text="2012"/>
+	</LinearLayout>
+	 <LinearLayout
+ 		android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+		<TextView
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:text="@string/labelMonth">
+		</TextView>
+		<Spinner 
+		    android:id="@+id/SpinnerMonth"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+	    <TextView
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:text="@string/labelBeginDay">
+		</TextView>
+		<EditText 
+		    android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:maxLength="2"
+ 			android:minWidth="10dp"
+ 			android:singleLine="true"
+ 			android:inputType="number"
+ 			android:id="@+id/etBeginDay"
+ 			android:text="01"/>
+		<TextView
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:text="@string/labelEndDay">
+		</TextView>
+		<EditText 
+		    android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:maxLength="2"
+ 			android:minWidth="10dp"
+ 			android:singleLine="true"
+ 			android:inputType="number"
+ 			android:id="@+id/etEndDay"
+ 			android:text="31"/>
+	</LinearLayout> 
+	<LinearLayout 
+        android:layout_width="fill_parent"
+ 		android:layout_height="wrap_content"
+ 		android:gravity="center"
+    	android:orientation="vertical">
+    	<Button
+ 			android:id="@+id/btnShowResult"
+ 			android:layout_width="wrap_content"
+ 			android:layout_height="wrap_content"
+ 			android:layout_marginTop="10dp"
+ 			android:text="@string/labelBtnShowResults"
+			android:onClick="btnShowResultsClickHandler">
+		</Button>
+	</LinearLayout> 	  
 </LinearLayout>

@@ -93,6 +93,8 @@ public class ReporterActivity extends Activity {
 	        		// переход на следующую строку 
 	        		// а если следующей нет (текущая - последняя), то false - выходим из цикла
 	        	} while (c.moveToNext());
+	        	// закрываем подключение к БД
+	    	    dbHelper.close();
 	        	// если логин и пароль корректные стартуем addNewReport
 	        	// иначе виводим Toast
 	        	if (boolCorrLogin) {
@@ -187,6 +189,8 @@ public class ReporterActivity extends Activity {
 	    
 	    //Удаление з БД по _id
 	    //db.delete("allreports", "_id = 1", null);
+	    //Чистим таблицу
+	    //db.delete("allreports", null, null);
 	    
 	    //--------------------------------
 	    //выводим данные с таблицы <users>
@@ -215,7 +219,7 @@ public class ReporterActivity extends Activity {
     		Log.d(LOG_TAG, "0 rows");
     	//-------------------------------------
 	    //выводим данные с таблицы <allreports>
-    	Log.d(LOG_TAG, "--- Rows in table <users>: ---");
+    	Log.d(LOG_TAG, "--- Rows in table <allreports>: ---");
      	//делаем запрос всех данных из таблицы allreports, получаем Cursor 
      	c = db.query("allreports", null, null, null, null, null, null);
      	// ставим позицию курсора на первую строку выборки
@@ -248,6 +252,8 @@ public class ReporterActivity extends Activity {
      	} 
      	else
      		Log.d(LOG_TAG, "0 rows");
+     	// закрываем подключение к БД
+	    dbHelper.close();
     }
     
 	

@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Toast;
 
 public class AddNewReport extends Activity {
 	
@@ -22,8 +21,8 @@ public class AddNewReport extends Activity {
 	DBHelper dbHelper;
 	String login;
 	String date_month_year;
-	String[] data = {"self development", "working time", "extra time", "team time"};
-	String typeOfActivities = data[0];
+	String[] arrayTypeOfActivities = {"self development", "working time", "extra time", "team time"};
+	String typeOfActivities = arrayTypeOfActivities[0];
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,7 @@ public class AddNewReport extends Activity {
 	    dbHelper = new DBHelper(this);
 	    
 	    // адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayTypeOfActivities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         
         Spinner spinnerTypeOfActivities = (Spinner) findViewById(R.id.SpinnerTypeOfActivities);
@@ -51,7 +50,7 @@ public class AddNewReport extends Activity {
         		public void onItemSelected(AdapterView<?> parent, View view,
         				int position, long id) {
         			// показываем позиция нажатого элемента
-        			typeOfActivities = data[position];
+        			typeOfActivities = arrayTypeOfActivities[position];
         		}
         		@Override
         			public void onNothingSelected(AdapterView<?> arg0) {

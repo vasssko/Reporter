@@ -33,6 +33,10 @@
             android:name=".AddNewReport"
             android:label="@string/app_name">
         </activity>
+        <activity 
+            android:name=".ShowResults"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

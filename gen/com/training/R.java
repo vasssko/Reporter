@@ -41,28 +41,35 @@ public final class R {
         public static final int right_cal_button=0x7f02001b;
     }
     public static final class id {
+        public static final int SpinnerMonth=0x7f050019;
         public static final int SpinnerTypeOfActivities=0x7f050000;
-        public static final int btnAddReport=0x7f050015;
+        public static final int btnAddReport=0x7f050017;
         public static final int btnAddReportFromCalendar=0x7f05000e;
+        public static final int btnBack=0x7f050013;
         public static final int btnLogin=0x7f05000c;
-        public static final int btnLogout=0x7f050013;
+        public static final int btnLogout=0x7f050015;
         public static final int btnRead=0x7f05000d;
         public static final int btnRegistration=0x7f050008;
         public static final int btnSaveReport=0x7f050004;
+        public static final int btnShowResult=0x7f05001c;
         public static final int calendar=0x7f050012;
         public static final int currentMonth=0x7f050010;
         public static final int edInfo=0x7f050002;
         public static final int edNameOfProject=0x7f050001;
         public static final int edTime=0x7f050003;
+        public static final int etBeginDay=0x7f05001a;
+        public static final int etEndDay=0x7f05001b;
         public static final int etLogin=0x7f05000a;
         public static final int etLoginReg=0x7f050005;
         public static final int etPassword=0x7f05000b;
         public static final int etPasswordReg=0x7f050006;
         public static final int etRepeatPasswordReg=0x7f050007;
+        public static final int etShowResults=0x7f050014;
+        public static final int etYear=0x7f050018;
         public static final int gridcell=0x7f050009;
         public static final int nextMonth=0x7f050011;
         public static final int prevMonth=0x7f05000f;
-        public static final int tvWWR=0x7f050014;
+        public static final int tvWWR=0x7f050016;
     }
     public static final class layout {
         public static final int addnewreport=0x7f030000;
@@ -70,24 +77,33 @@ public final class R {
         public static final int gridcell=0x7f030002;
         public static final int main=0x7f030003;
         public static final int mycalendar=0x7f030004;
-        public static final int workwithreports=0x7f030005;
+        public static final int showresults=0x7f030005;
+        public static final int workwithreports=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int infoCalendar=0x7f040008;
-        public static final int infoSaveReport=0x7f04000a;
+        public static final int infoCalendar=0x7f04000e;
+        public static final int infoSaveReport=0x7f040010;
+        public static final int labelBeginDay=0x7f04000b;
         public static final int labelBtnAddReport=0x7f040007;
+        public static final int labelBtnBack=0x7f040017;
         public static final int labelBtnLogin=0x7f040003;
         public static final int labelBtnLogout=0x7f040006;
         public static final int labelBtnRegistration=0x7f040005;
-        public static final int labelBtnSaveReport=0x7f04000b;
-        public static final int labelInfoOfProject=0x7f04000e;
+        public static final int labelBtnSaveReport=0x7f040011;
+        public static final int labelBtnShowResults=0x7f04000d;
+        public static final int labelEndDay=0x7f04000c;
+        public static final int labelForETTime=0x7f040016;
+        public static final int labelInfoOfProject=0x7f040014;
+        public static final int labelInfoShowResult=0x7f040008;
         public static final int labelLogin=0x7f040001;
-        public static final int labelNameOfProject=0x7f04000d;
+        public static final int labelMonth=0x7f04000a;
+        public static final int labelNameOfProject=0x7f040013;
         public static final int labelPassword=0x7f040002;
         public static final int labelRepeatPassword=0x7f040004;
-        public static final int labelTime=0x7f04000f;
-        public static final int labelTypeOfActivities=0x7f04000c;
-        public static final int labelbtnAddReportFromCalendar=0x7f040009;
+        public static final int labelTime=0x7f040015;
+        public static final int labelTypeOfActivities=0x7f040012;
+        public static final int labelYear=0x7f040009;
+        public static final int labelbtnAddReportFromCalendar=0x7f04000f;
     }
 }
